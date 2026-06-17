@@ -6834,6 +6834,238 @@ main {
   }
 }
 
+/* Mobile/tablet hardening pass.
+   Desktop decorative rails work poorly once text wraps, so the narrow layout
+   uses compact cards with decoration moved behind or removed entirely. */
+@media (max-width: 760px) {
+  .autonomy-strip {
+    overflow: hidden;
+  }
+
+  .autonomy-strip::before,
+  .autonomy-strip::after {
+    display: none;
+  }
+
+  .autonomy-strip button {
+    min-height: 0;
+    gap: 10px;
+    padding: 24px 26px 26px;
+  }
+
+  .autonomy-strip button::before,
+  .autonomy-strip button::after {
+    pointer-events: none;
+  }
+
+  .autonomy-strip button::after {
+    display: none;
+  }
+
+  .autonomy-strip strong {
+    font-size: clamp(28px, 8.5vw, 36px);
+    line-height: 1.02;
+  }
+
+  .autonomy-strip p {
+    max-width: 32ch;
+    font-size: 17px;
+    line-height: 1.42;
+  }
+
+  .growth-timeline {
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(17, 18, 22, 0.08);
+    box-shadow: 0 28px 76px rgba(31, 38, 54, 0.055);
+  }
+
+  .growth-timeline::before {
+    display: none;
+  }
+
+  .growth-timeline article {
+    min-height: 0;
+    display: grid;
+    justify-content: stretch;
+    gap: 20px;
+    padding: 28px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 18, 22, 0.08);
+    background:
+      radial-gradient(circle at 92% 18%, rgba(33, 92, 255, 0.06), transparent 34%),
+      rgba(255, 255, 255, 0.56);
+  }
+
+  .growth-timeline article:last-child {
+    border-bottom: 0;
+  }
+
+  .growth-timeline article::before,
+  .growth-timeline article::after {
+    display: none;
+  }
+
+  .growth-timeline strong {
+    max-width: none;
+    font-size: clamp(25px, 7.2vw, 32px);
+    line-height: 1.08;
+  }
+
+  .growth-timeline i {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: min(180px, 52%);
+    height: 2px;
+    margin-top: 2px;
+    background: linear-gradient(90deg, var(--blue), rgba(33, 92, 255, 0));
+    opacity: 0.72;
+  }
+
+  .proof-ledger {
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .proof-row {
+    min-height: 0;
+    display: grid;
+    gap: 13px;
+    padding: 26px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 18, 22, 0.08);
+    background:
+      radial-gradient(circle at 92% 20%, rgba(33, 92, 255, 0.055), transparent 35%),
+      rgba(255, 255, 255, 0.58);
+  }
+
+  .proof-row:last-child {
+    border-bottom: 0;
+  }
+
+  .proof-row::after {
+    display: none;
+  }
+
+  .proof-row::before {
+    inset: auto 20px 16px;
+    height: 46px;
+    opacity: 0.28;
+  }
+
+  .proof-row strong {
+    margin-top: 0;
+    font-size: clamp(26px, 7.6vw, 34px);
+    line-height: 1.06;
+  }
+
+  .proof-row p {
+    max-width: 34ch;
+    font-size: 17px;
+    line-height: 1.44;
+  }
+
+  .memory-layer {
+    gap: 14px;
+  }
+
+  .memory-layer i {
+    width: min(34%, 130px);
+    flex: 0 0 auto;
+  }
+
+  .surface-grid,
+  .mode-dock,
+  .proof-ledger,
+  .growth-timeline,
+  .autonomy-strip {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1080px) {
+  .autonomy-strip::before,
+  .autonomy-strip::after,
+  .autonomy-strip button::after {
+    display: none;
+  }
+
+  .autonomy-strip button {
+    min-height: 176px;
+  }
+
+  .work-state-list li {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .work-state-list li > i {
+    display: none;
+  }
+
+  .growth-timeline article {
+    min-height: 0;
+    display: grid;
+    gap: 22px;
+    padding: 32px;
+    justify-content: stretch;
+  }
+
+  .growth-timeline article::before,
+  .growth-timeline article::after {
+    display: none;
+  }
+
+  .growth-timeline strong {
+    max-width: none;
+    font-size: clamp(27px, 3.9vw, 36px);
+    line-height: 1.08;
+  }
+
+  .growth-timeline i {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: min(220px, 58%);
+    height: 2px;
+    margin-top: 2px;
+    background: linear-gradient(90deg, var(--blue), rgba(33, 92, 255, 0));
+    opacity: 0.7;
+  }
+
+  .proof-row {
+    min-height: 0;
+    display: grid;
+    gap: 16px;
+    padding: 30px;
+  }
+
+  .proof-row::after {
+    display: none;
+  }
+
+  .proof-row::before {
+    inset: auto 20px 18px;
+    height: 58px;
+    opacity: 0.32;
+  }
+
+  .proof-row strong {
+    margin-top: 0;
+    font-size: clamp(28px, 3.6vw, 36px);
+    line-height: 1.06;
+  }
+
+  .proof-row p {
+    font-size: 17px;
+    line-height: 1.42;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
